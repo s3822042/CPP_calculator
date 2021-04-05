@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/paull/Desktop/C++/calculator_score/main.cpp
+main.h
+C:/Users/paull/Desktop/C++/calculator_score/main.h
+iostream
+-
+
+C:/Users/paull/Desktop/C++/calculator_score/main.h
+

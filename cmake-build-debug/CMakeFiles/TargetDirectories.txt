@@ -1,0 +1,3 @@
+C:/Users/paull/Desktop/C++/calculator_score/cmake-build-debug/CMakeFiles/calculator_score.dir
+C:/Users/paull/Desktop/C++/calculator_score/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/paull/Desktop/C++/calculator_score/cmake-build-debug/CMakeFiles/rebuild_cache.dir
