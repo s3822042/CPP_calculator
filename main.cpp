@@ -2,72 +2,72 @@
 // Created by Paul on 4/5/2021.
 //
 
-#include "main.h"
 #include <iostream>
-#include <string>
 
 using namespace std;
 
-void getLengthOfArray(int &n) {
-    cout << "How many assignment you have:" << endl;
-    cin >> n;
-}
-void getScoreInput(){
-    int x;
-    getLengthOfArray(x);
-    int scoreArray[x];
-    for(int i = 1 ; i < x+1 ; i++){
-        cout << "The score for assigment" << " " << i <<endl;
-        cin >> scoreArray[i];
+
+void getScoreInput(int n , int scoreArray[]){
+    for(int i = 0 ; i < n ; i++){
+        cout << "The score for assigment:" << " " << i + 1 <<endl;
+        cin >> scoreArray[i] ;
     }
 }
 
-void getMaxScoreInput(){
-    int x;
-    getLengthOfArray(x);
-    int maxScoreArray[x];
-    for(int i = 1 ; i < x+1 ; i++){
-        cout << "The maximum score for assigment" << " " << i <<endl;
+void getMaxScoreInput(int n , int maxScoreArray[]){
+    for(int i = 0 ; i < n ; i++){
+        cout << "The maximum score for assigment" << " " << i+1 <<endl;
         cin >> maxScoreArray[i];
     }
-
 }
 
-void getPercentageInput(){
-    int x;
-    getLengthOfArray(x);
-    int percentageArray[x];
-    for(int i = 1 ; i < x+1 ; i++){
-        cout << "The percentage for assigment" << " " << i <<endl;
+void getPercentageInput(int n , int percentageArray[]){
+    for(int i = 0 ; i < n ; i++){
+        cout << "The percentage for assigment" << " " << i + 1 <<endl;
         cin >> percentageArray[i];
     }
 }
 
-
-void calculateScore(){
-    cout << getScoreInput();
-    getMaxScoreInput();
-    getPercentageInput();
+float calculateScore(int n , int scoreArray[], int maxScoreArray[], int percentageArray[]){
+    float final_score = 0;
+    getScoreInput(n , scoreArray);
+    getMaxScoreInput(n , maxScoreArray);
+    getPercentageInput(n , percentageArray);
+    for(int i = 0; i < n; i++){
+        final_score += ((float)scoreArray[i]/(float)maxScoreArray[i])*(float)percentageArray[i];
+    }
+    return final_score;
 }
 
-//void printQualification(){
-//    int score = calculateScore();
-//    if(score >= 50 && score <60){
-//        cout << score << " " << "PA";
-//    }
-//    else if(score >= 60 && score < 70){
-//        cout << score << " " << "CR";
-//    }
-//    else if(score >= 70 && score < 80){
-//        cout << score << " " << "DI";
-//    }
-//    else if(score >= 80){
-//        cout << score << " " << "HD";
-//    }
-//    else{
-//        cout << score << " " <<"NN";
-//    }
-//}
+void printQualification(int score){
+    if(score >= 50 && score <60){
+        cout << score << " " << "PA";
+    }
+    else if(score >= 60 && score < 70){
+        cout << score << " " << "CR";
+    }
+    else if(score >= 70 && score < 80){
+        cout << score << " " << "DI";
+    }
+    else if(score >= 80){
+        cout << score << " " << "HD";
+    }
+    else{
+        cout << score << " " <<"NN";
+    }
+}
+
+void showScore(){
+    int n;
+    float final_score;
+    cout << "How many assignment you have:" << endl;
+    cin >> n;
+    int scoreArray[n], maxScoreArray[n], percentageArray[n];
+
+    final_score = calculateScore(n, scoreArray, maxScoreArray, percentageArray);
+    printQualification((int)final_score);
+}
+
 //void finalizeScore(){
 //    printQualification();
 //
@@ -92,20 +92,16 @@ void switchMenu(){
     cin >> userInput;
     switch (userInput) {
         case 1:
-            getScoreInput();
+            showScore();
             break;
         case 2:
+            break;
 
-            break;
-        case 3:
-            exit(-1);
-        default:
-            break;
     }
 }
 int main(){
-    getScoreInput();
-
+    printMenu();
+    switchMenu();
     return 0;
 }
 
