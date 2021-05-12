@@ -8,49 +8,66 @@
 
 using namespace std;
 
-
-int * getScoreInput(){
-    int score[3];
-    for(int i = 0 ; i < sizeof(score)/sizeof(score[0]); i++) {
-        cout << "Score for assignment " << i + 1 << endl;
-        cin >> score[i];
-    }
-    return score;
+void getLengthOfArray(int &n) {
+    cout << "How many assignment you have:" << endl;
+    cin >> n;
 }
-int * getPercentageInput(){
-    int percentage[3];
-    for(int i = 0 ; i < sizeof(percentage)/sizeof(percentage[0]); i++) {
-        cout << "Percentage for assignment " << i + 1 << endl;
-        cin >> percentage[i];
+void getScoreInput(){
+    int x;
+    getLengthOfArray(x);
+    int scoreArray[x];
+    for(int i = 1 ; i < x+1 ; i++){
+        cout << "The score for assigment" << " " << i <<endl;
+        cin >> scoreArray[i];
     }
-    return percentage;
 }
 
-int calculateScore(){
-    getScoreInput();
+void getMaxScoreInput(){
+    int x;
+    getLengthOfArray(x);
+    int maxScoreArray[x];
+    for(int i = 1 ; i < x+1 ; i++){
+        cout << "The maximum score for assigment" << " " << i <<endl;
+        cin >> maxScoreArray[i];
+    }
+
+}
+
+void getPercentageInput(){
+    int x;
+    getLengthOfArray(x);
+    int percentageArray[x];
+    for(int i = 1 ; i < x+1 ; i++){
+        cout << "The percentage for assigment" << " " << i <<endl;
+        cin >> percentageArray[i];
+    }
+}
+
+
+void calculateScore(){
+    cout << getScoreInput();
+    getMaxScoreInput();
     getPercentageInput();
-
-
 }
 
-void printQualification(){
-    int score = calculateScore();
-    if(score >= 50 && score <60){
-        cout << "PA";
-    }
-    else if(score >= 60 && score < 70){
-        cout << "CR";
-    }
-    else if(score >= 70 && score < 80){
-        cout << "DI";
-    }
-    else if(score >= 80){
-        cout << "HD";
-    }
-    else{
-        cout <<"NN";
-    }
-}
+//void printQualification(){
+//    int score = calculateScore();
+//    if(score >= 50 && score <60){
+//        cout << score << " " << "PA";
+//    }
+//    else if(score >= 60 && score < 70){
+//        cout << score << " " << "CR";
+//    }
+//    else if(score >= 70 && score < 80){
+//        cout << score << " " << "DI";
+//    }
+//    else if(score >= 80){
+//        cout << score << " " << "HD";
+//    }
+//    else{
+//        cout << score << " " <<"NN";
+//    }
+//}
 //void finalizeScore(){
 //    printQualification();
 //
@@ -70,12 +87,12 @@ void printMenu(){
 }
 
 void switchMenu(){
-    cout << "Please enter your choice:";
     int userInput;
+    cout << "Please enter your choice:";
     cin >> userInput;
     switch (userInput) {
         case 1:
-            calculateScore();
+            getScoreInput();
             break;
         case 2:
 
@@ -87,8 +104,7 @@ void switchMenu(){
     }
 }
 int main(){
-    printMenu();
-    switchMenu();
+    getScoreInput();
 
     return 0;
 }
