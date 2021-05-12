@@ -4,18 +4,32 @@
 
 #include "main.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-void getUserInput(){
-    int score_asm;
-    cout << "Please enter your score: ";
-    cin >> score_asm;
+
+int * getScoreInput(){
+    int score[3];
+    for(int i = 0 ; i < sizeof(score)/sizeof(score[0]); i++) {
+        cout << "Score for assignment " << i + 1 << endl;
+        cin >> score[i];
+    }
+    return score;
+}
+int * getPercentageInput(){
+    int percentage[3];
+    for(int i = 0 ; i < sizeof(percentage)/sizeof(percentage[0]); i++) {
+        cout << "Percentage for assignment " << i + 1 << endl;
+        cin >> percentage[i];
+    }
+    return percentage;
 }
 
 int calculateScore(){
-    int final_score = 60;
-    return final_score;
+    getScoreInput();
+    getPercentageInput();
+
 
 }
 
@@ -37,14 +51,14 @@ void printQualification(){
         cout <<"NN";
     }
 }
-void finalizeScore(){
-    printQualification();
-
-}
-
-void calculationGPA(){
-
-}
+//void finalizeScore(){
+//    printQualification();
+//
+//}
+//
+//void calculationGPA(){
+//
+//}
 
 
 
@@ -61,10 +75,10 @@ void switchMenu(){
     cin >> userInput;
     switch (userInput) {
         case 1:
-            finalizeScore();
+            calculateScore();
             break;
         case 2:
-            calculationGPA();
+
             break;
         case 3:
             exit(-1);
